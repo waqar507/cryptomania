@@ -13,7 +13,7 @@ import {
     Image,
     FlatList
 } from 'react-native';
-import CoinInfo from './coin-info';
+import CoinList from './coin-list';
 
 //import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -47,7 +47,7 @@ export default class CoinMain extends Component {
         //     <View style={{height:0.5,backgroundColor:'black'}}/>
         //     } />
 
-        let coindetails=items.map((item,i)=><CoinInfo key={i} pair={item.pair} pricebtc={item.pricebtc}/>)
+        let coindetails=items.map((item,i)=><CoinList key={i} pair={item.pair} pricebtc={item.pricebtc}/>)
 
         return (
             <View style={styles.container}>

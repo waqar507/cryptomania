@@ -12,27 +12,25 @@ import {
   View
 } from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
 
 
-export default class App extends Component {
+
+export default class CoinList extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <View style={styles.coinpairvol}>
+          <Text style={styles.coin}>{this.props.pair}</Text>
+          <Text>Vol 6,331</Text>
+        </View>
+        <View style={styles.lastprice}>
+          <Text style={styles.coin}>{this.props.pricebtc}</Text>
+          <Text>$0.003</Text>
+
+        </View>
+        <View style={styles.hour24change}>
+          <Text style={styles.coin}>24%</Text>
+        </View>
       </View>
     );
   }
@@ -40,19 +38,22 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    padding: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  hour24change: {
+    height: 40,
+    width: 70,
+    backgroundColor: 'green',
+    borderRadius: 10,
+    justifyContent:'center',
+    alignItems:'center'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  coin: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color:'black'
+  }
 });
