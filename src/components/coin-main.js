@@ -35,19 +35,84 @@ export default class CoinMain extends Component {
                 'vol': 6381,
                 'change': 15
 
+            },
+            {
+                'pair': 'trx',
+                'pricebtc': 0.00042,
+                'pricedollar': 0.003,
+                'vol': 6331,
+                'change': 24
+
+            },
+            {
+                'pair': 'xlm',
+                'pricebtc': 0.00048,
+                'pricedollar': 0.045,
+                'vol': 6381,
+                'change': 15
+
+            },
+            {
+                'pair': 'trx',
+                'pricebtc': 0.00042,
+                'pricedollar': 0.003,
+                'vol': 6331,
+                'change': 24
+
+            },
+            {
+                'pair': 'xlm',
+                'pricebtc': 0.00048,
+                'pricedollar': 0.045,
+                'vol': 6381,
+                'change': 15
+
+            },
+            {
+                'pair': 'trx',
+                'pricebtc': 0.00042,
+                'pricedollar': 0.003,
+                'vol': 6331,
+                'change': 24
+
+            },
+            {
+                'pair': 'xlm',
+                'pricebtc': 0.00048,
+                'pricedollar': 0.045,
+                'vol': 6381,
+                'change': 15
+
+            },{
+                'pair': 'trx',
+                'pricebtc': 0.00042,
+                'pricedollar': 0.003,
+                'vol': 6331,
+                'change': 24
+
+            },
+            {
+                'pair': 'xlm',
+                'pricebtc': 0.00048,
+                'pricedollar': 0.045,
+                'vol': 6381,
+                'change': 15
+
             }
         ];
 
-        // let coindetails = <FlatList data={items}
-        //     renderItem={(item) =>
-        //         <CoinInfo pair={item.pair} pricebtc={item.pricebtc} />
-        //     } 
-        //     keyExtractor={(item) => item.pair}
-        //     ItemSeparatorComponent={() => 
-        //     <View style={{height:0.5,backgroundColor:'black'}}/>
-        //     } />
+        let coindetails = <FlatList data={items}
+            renderItem={({item}) =>
+                <CoinList pair={item.pair} pricebtc={item.pricebtc} />
+            } 
+            keyExtractor={(item) => item.pair}
+            ItemSeparatorComponent={() => 
+            <View style={{height:0.5,backgroundColor:'black'}}/>
+            }
+            onClick
+             />
 
-        let coindetails=items.map((item,i)=><CoinList key={i} pair={item.pair} pricebtc={item.pricebtc}/>)
+        //let coindetails=items.map((item,i)=><CoinList key={i} pair={item.pair} pricebtc={item.pricebtc}/>)
 
         return (
             <View style={styles.container}>
