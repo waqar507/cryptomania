@@ -10,22 +10,62 @@ import {
     StyleSheet,
     Text,
     View,
-    Image
+    Image,
+    FlatList
 } from 'react-native';
+import CoinInfo from './coin-info';
+
+//import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class CoinMain extends Component {
     render() {
+        var items = [
+            {
+                'pair': 'trx',
+                'pricebtc': 0.00042,
+                'pricedollar': 0.003,
+                'vol': 6331,
+                'change': 24
+
+            },
+            {
+                'pair': 'xlm',
+                'pricebtc': 0.00048,
+                'pricedollar': 0.045,
+                'vol': 6381,
+                'change': 15
+
+            }
+        ];
+
+        // let coindetails = <FlatList data={items}
+        //     renderItem={(item) =>
+        //         <CoinInfo pair={item.pair} pricebtc={item.pricebtc} />
+        //     } 
+        //     keyExtractor={(item) => item.pair}
+        //     ItemSeparatorComponent={() => 
+        //     <View style={{height:0.5,backgroundColor:'black'}}/>
+        //     } />
+
+        let coindetails=items.map((item,i)=><CoinInfo key={i} pair={item.pair} pricebtc={item.pricebtc}/>)
+
         return (
             <View style={styles.container}>
                 <View style={styles.navBar}>
-
+                    <Text style={styles.navText}>Markets</Text>
                     <View style={styles.navItem}>
-                        <Text style={styles.navText}>Markets</Text>
-                        <Text style={{}}>search bar</Text>
-
+                        <Text style={styles.navText}>search bar</Text>
                     </View>
-
                 </View>
+                <View style={styles.coinstats}>
+                    <Text style={styles.navText}>Pair/Vol</Text>
+                    <Text style={styles.navText}>Last Price</Text>
+                    <Text style={styles.navText}>24h Chg%</Text>
+                </View>
+                <View style={styles.body}>
+                    {coindetails}
+                </View>
+                <View style={styles.tabBar}></View>
             </View>
         );
     }
@@ -41,21 +81,35 @@ const styles = StyleSheet.create({
         height: 60,
         elevation: 3,
         flexDirection: 'row',
-        backgroundColor: 'white',
-        justifyContent: 'center',
+        backgroundColor: '#3c3c3c',
         alignItems: 'center',
-        paddingHorizontal: 15
+        justifyContent: 'center'
+
     },
     navText: {
-        color: 'black',
-        fontWeight: 'bold'
-    },
-    navItem:{
-        flexDirection:'row',
-        justifyContent:'space-between',
-        marginRight:10,
-        paddingHorizontal:5
-        
-    }
+        color: 'white',
 
+    },
+    navItem: {
+        flexDirection: 'row',
+        position: 'absolute',
+        right: 10
+    },
+    tabBar: {
+        height: 50,
+        backgroundColor: '#3c3c3c',
+
+    },
+    body: {
+        flex: 1
+    },
+    coinstats: {
+        height: 35,
+        backgroundColor: '#3c3c3c',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 10
+
+    }
 });
